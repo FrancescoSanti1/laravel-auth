@@ -7,8 +7,16 @@
     <title>Home</title>
 </head>
 <body>
+
+    @auth
+        <h2>Ciao {{Auth::user()->name}}! Hai effettuato l'accesso.</h2>
+    @endauth
+
     <h3>Registrati</h3>
-    <form action="" method="post">
+    <form action="{{route('register')}}" method="post">
+        @method('post')
+        @csrf
+
         <input type="text" name="name" placeholder="username"><br>
         <input type="email" name="email" placeholder="la tua email"><br>
         <input type="password" name="password" placeholder="la tua password"><br>
@@ -17,7 +25,10 @@
     </form>
 
     <h3>oppure accedi</h3>
-    <form action="" method="post">
+    <form action="{{route('login')}}" method="post">
+        @method('post')
+        @csrf
+
         <input type="email" name="email" placeholder="la tua email"><br>
         <input type="password" name="password" placeholder="la tua password"><br><br>
         <input type="submit" value="Accedi">
