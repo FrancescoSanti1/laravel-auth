@@ -10,6 +10,8 @@
 
     @auth
         <h2>Ciao {{Auth::user()->name}}! Hai effettuato l'accesso.</h2>
+        <br>
+        <a href="{{route('logout')}}">Logout</a>
     @endauth
 
     <h3>Registrati</h3>
